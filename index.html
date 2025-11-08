@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="input" type="text">
+  <button id="btn">
+    enviar
+  </button>
+  <ul id="lista">
+
+  </ul>
+
+  <script>
+    let value = localStorage.getItem("value")
+    let input = document.getElementById("input")
+    let btn = document.getElementById("btn")
+    input.value = value
+    let lista = document.getElementById("lista")
+
+    /*
+    for (let index = 0; index < items.length; index++) {
+      let item = document.createElement("li")
+      item.textContent = input.items[index]
+      lista.appendChild(item)
+    }
+    */
+
+    btn.addEventListener("click", function() {
+      console.log(input.value)
+      localStorage.setItem("value", input.value)
+
+      let item = document.createElement("li")
+      item.textContent = input.value
+      lista.appendChild(item)
+      localStorage.setItem("li", input.value)
+      input.value = ""
+    })
+  </script>
+</body>
+</html>
